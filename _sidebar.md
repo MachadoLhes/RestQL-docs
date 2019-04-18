@@ -1,12 +1,16 @@
 <!-- docs/_sidebar.md -->
 
-* [Home](/)
-* [F.A.Q](/restql/faq.md)
-* [Cache](/restql/cache.md)
-* [How to contribute](/restql/howToContribute.md)
-* [Building locally](/restql/howToDev.md)
-* [Manager](/restql/manager.md)
-* [Configurations](/restql/mongoConfig.md)
-* [Query Language](/restql/queryLang.md)
-* [Saved Queries](/restql/savedQueries.md)
-* [Troubleshooting](/restql/troubleshooting.md)
+- **RestQL**
+    - [Query Language](/restql/queryLang.md)
+    - [Manager](/restql/manager.md)
+    - [Saved Queries](/restql/savedQueries.md)
+    - [Plugins](/restql/plugins.md)
+    - [Troubleshooting](/restql/troubleshooting.md)
+- **Under the Hood**
+    - [Configurations](/restql/config.md)
+    - [Cache](/restql/cache.md)
+    - [Building locally](/restql/howToDev.md)
+- [About](/restql/home.md)
+- [Game Resources](/restql/gameResources.md)
+- [How to contribute](/restql/howToContribute.md)
+- [F.A.Q](/restql/faq.md)

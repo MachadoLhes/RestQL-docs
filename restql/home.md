@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/B2W-BIT/restQL-http.svg?branch=master)](https://travis-ci.org/B2W-BIT/restQL-http)
+<img name="logo" src="/assets/images/logo_text.svg?sanitize=true">
+
+<br/>
 
 restQL-http is a server to run restQL queries, making easy to fetch information from multiple services in the most efficient manner. e.g:
 
