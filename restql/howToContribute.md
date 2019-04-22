@@ -1,5 +1,7 @@
-# First Steps
-If you want to contribute with RestQL, the first thing you should do is [set up your development environment](https://github.com/B2W-BIT/restQL-http/wiki/RestQL-Server#running-from-source-code)
+# How to Contribute
+
+## First Steps
+If you want to contribute with RestQL, the first thing you should do is [set up your development environment](/restql/howToDev)
 
 ## Openning issues
 If you spot a bug or have a feature to suggest, please open an issue at the [RestQL HTTP Project](https://github.com/B2W-BIT/restQL-http/), even if the issue refers to [RestQL Clojure](https://github.com/B2W-BIT/restQL-clojure/) or [RestQL Manager](https://github.com/B2W-BIT/restQL-manager/). Keeping all the issues in one place makes it easier to track bugs and suggestions.

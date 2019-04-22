@@ -1,4 +1,4 @@
-# Getting Started
+# Building Locally
 
 ## Downloading Source Code
 Simply follow these steps:
@@ -55,7 +55,11 @@ As prerequisites to build restQL-server from source we need:
 - Java 11
 - Leiningen
 
-Build the server using the build script: `scripts/build-dist.sh`.  If you want to deploy restQL-server, copy the files under the generated `dist` folder.
+Build the server using the build script: `scripts/build-dist.sh`.  
+
+The building script will create a folder `dist` where you can configure your resources on the file `dist/bin/env.sh` and run the server using the script `dist/bin/run.sh`.
+
+If you want to deploy restQL-server, copy the files under the generated `dist` folder.
 
 ### Running the server
 To run the restQL Server follow the bellow steps from the source code root:
@@ -79,12 +83,5 @@ To learn how to run the manager check the project at [restQL manager](https://gi
 
 All saved queries are composed by the query name and it's version. They're also immutable, which means each query edit generates a new version. This is designed to avoid unaware impact in production system and optimize caching.
 
-To learn how to save and run queries check the [Saved Queries](https://github.com/B2W-BIT/restQL-server/wiki/Saved-Queries) page.
+To learn how to save and run queries check the [Saved Queries](/restql/savedQueries) page.
 
-
-
-## Next steps
-
-1. Learn restQL [query language](https://github.com/B2W-BIT/restQL-server/wiki/RestQL-Query-Language),
-2. Learn about the [manager and saved queries](https://github.com/B2W-BIT/restQL-server/wiki/Manager-and-Saved-Queries),
-3. [Get involved :)](https://github.com/B2W-BIT/restQL-server/wiki/How-To-Contribute)

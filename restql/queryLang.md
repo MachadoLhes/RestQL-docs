@@ -1,3 +1,5 @@
+# REST Query Language
+
 ## Query Syntax
 
 The clause order matters when making restQL queries. The following is a full reference to the query syntax, available clauses and order.

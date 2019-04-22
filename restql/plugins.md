@@ -1,10 +1,12 @@
+# Plugins
+
 restQL Server has a plugin system, that works by placing the respective jars into the plugins directory.
 
 A plugin can register hooks into the restQL instance that runs inside the server, such as logging data or sending metrics to other systems.
 
 To install a plugin all that needs to be done is to place the jars in the correct directory, and to uninstall it simply remove the respective jars.
 
-# Developing a plugin
+## Developing a plugin
 
 restQL Server plugins are mainly written in Clojure, and there is a leiningen template with all the required boilerplate ready to use. To start a new plugin project, run the following command:
 

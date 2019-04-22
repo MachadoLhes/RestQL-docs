@@ -1,3 +1,5 @@
+# Saved Queries
+
 restQL Server is able to save queries. On saving, restQL server will generate an unique URL where you can execute your query with a simple `GET` call. You can also include parameters in your query and set them when running the query using URL query string or HTTP headers.
 
 restQL Server works with a revision system. Once you save a query, it's immutable. If you save another query with the same queryId of an existing one, the server will not touch the previous query but rather it will create a new revision.

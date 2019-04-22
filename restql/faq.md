@@ -24,7 +24,7 @@ This is the same case as in **ordenation**, pagination responsability is delegat
 
 ### **How does RestQL caches things?**
 
-It can be controlled via the `cache-control` header. Learn more about it [here]().
+It can be controlled via the `cache-control` header. Learn more about it [here](/restql/cache).
 
 ### **Does RestQL retry failed requests?**
 

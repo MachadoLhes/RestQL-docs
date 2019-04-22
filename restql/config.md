@@ -1,3 +1,5 @@
+# Configuration
+
 **restQL-http** comes with the following configuration settings
 
 ## Enviromnent variables:
@@ -26,6 +28,10 @@ Allows you to configure the resource mappings and saved queries (may be overwrit
 ### Location:
 By default the configuration file is placed in `src/resources` path. 
 
+## Adding Resources:
+
+Resources can be added either through the `restql.yml` file or through connecting to a mongoDB collection.
+
 ### Files: 
 
 `restql.yml`
@@ -50,9 +56,7 @@ queries:
         from your-resource
 ```
 
-## Adding Resources:
-
-Resources can be added either through the `restql.yml` file or through connecting to a mongoDB collection.
+### Via a mongoDB collection:
 
 There should be a collection called `tenant`, that shold look like that:
 ```json

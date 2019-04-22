@@ -1,3 +1,5 @@
+# Game Resources
+
 ### heroes 
 List all heroes or an specific hero
 
