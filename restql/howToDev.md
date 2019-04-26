@@ -3,7 +3,7 @@
 ## Downloading Source Code
 Simply follow these steps:
 
-1. Download the latest release in the [release page](https://github.com/B2W-BIT/restQL-server/releases),
+1. Download the latest release in the [release page](https://github.com/B2W-BIT/restQL-http/releases),
 2. Unzip the package,
 
 ## Running as a Docker container
@@ -50,7 +50,7 @@ The MongoDB dependency is optional and is used to store saved queries.
 ## Running From Source Code
 
 ### Building From Source Code
-As prerequisites to build restQL-server from source we need:
+As prerequisites to build restQL-http from source we need:
 
 - Java 11
 - Leiningen
@@ -59,7 +59,7 @@ Build the server using the build script: `scripts/build-dist.sh`.
 
 The building script will create a folder `dist` where you can configure your resources on the file `dist/bin/env.sh` and run the server using the script `dist/bin/run.sh`.
 
-If you want to deploy restQL-server, copy the files under the generated `dist` folder.
+If you want to deploy restQL-http, copy the files under the generated `dist` folder.
 
 ### Running the server
 To run the restQL Server follow the bellow steps from the source code root:
@@ -73,6 +73,29 @@ Then you can test it, since restQL Server allows you to post ad-hoc queries and 
 from planets as allPlanets
 ```
 
+## Building changes in restQL Clojure for restQL HTTP
+
+Optimally, you should test any changes made in [restQL-Clojure](https://github.com/B2W-BIT/restQL-clojure) with unit tests. But, if you want to test integration with [restQL-HTTP](https://github.com/B2W-BIT/restQL-http), you should follow this simple set of steps:
+
+1. Upgrade the project version at `project.clj` from `restQL-Clojure`
+```clojure
+(defproject b2wdigital/restql-core "2.x.xx"
+...)
+```
+2. After making the alterations you need in `restQL-Clojure`, run `lein install`. You'll get something like that:
+
+```
+...
+Installed jar and pom into local repo.
+```
+3. Then, you should change the `restQL-Clojure` dependency version to your new local one at `:dependencies` at `project.clj` from `restQL-HTTP`
+```clojure
+:dependencies [[b2wdigital/restql-core "2.x.xx"]
+                 [org.clojure/clojure "1.10.0"]
+                 [org.clojure/core.async "0.4.490"]
+                 ...]            
+```
+4. Now you can run the project with `lein run` or create a standalone jar file with `lein uberjar`
 
 
 ## Running restQL Manager

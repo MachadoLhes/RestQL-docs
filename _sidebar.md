@@ -8,6 +8,9 @@
     - [Saved Queries](/restql/savedQueries.md)
     - [Plugins](/restql/plugins.md)
     - [Troubleshooting](/restql/troubleshooting.md)
+- **Tutorial**
+    - [Introduction](/restql/tutorial/intro.md)
+    - [Connecting to a REST API](/restql/tutorial/addResource.md)
 - **Under the Hood**
     - [Configurations](/restql/config.md)
     - [Cache](/restql/cache.md)

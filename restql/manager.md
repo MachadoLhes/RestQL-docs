@@ -90,7 +90,7 @@ By default the restQL Manager run on port 3000.
 
 #### Retrieving Available Resources
 
-RestQL-server has a route to retrieve all the mapped resources.
+restQL-HTTP has a route to retrieve all the mapped resources.
 
 The route `GET http://localhost:3000/resources/:tenant` will return the following response:
 
@@ -118,7 +118,7 @@ Where `status = 200` means that the resource is reachable.
 
 #### Retrieving Saved Queries
 
-RestQL-server has a route to retrieve all the saved queries of a given namespace.
+restQL-HTTP has a route to retrieve all the saved queries of a given namespace.
 
 The route `GET http://localhost:3000/ns/:namespace` will return the following response:
 
@@ -147,7 +147,7 @@ Where:
 
 #### Retrieving Saved Queries Revision
 
-RestQL-server has a route to retrieve all revisions from a saved query.
+restQL-HTTP has a route to retrieve all revisions from a saved query.
 
 The route `GET http://localhost:3000/ns/:namespace/query/:queryId/`, with a given `queryId = cards`, will return the following response:
 
@@ -181,6 +181,6 @@ Where:
 
 #### Retrieving Saved Queries String
 
-RestQL-server has a route to retrieve the query string from a saved query, given a revision index.
+restQL-HTTP has a route to retrieve the query string from a saved query, given a revision index.
 
 The route `GET http://localhost:3000/ns/:namespace/query/:queryId/revision/:index`, given `queryId = cards` and `index = 1`, will re
