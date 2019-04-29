@@ -1,6 +1,6 @@
-# Connecting to a REST API
+# Consulting Your Resources
 
-To add a resource to RestQL we simply need to edit `restql.yml`, the file you created a few momments ago. Let's add Elon Musk's space business' API:
+So, until now you have made `restql-http` accessible at `localhost:9000` and your mappings look just like this:
 
 ```yaml
 mappings:
@@ -10,12 +10,10 @@ mappings:
 There's nothing special about this YAML file, the procedure is simple, any key you add can be consulted with a `from` statement just like this:
 
 ```
-from launches
+from $RESOURCE
 ```
 
-Any value assigned to that key should point to a RESTful API.
-
-Now let's make a simple query to retrieve all launches
+Now let's make a simple query to retrieve all launches. Just do a `POST` HTTP request at `localhost:9000/run-query` with the following body:
 ```
 from launches
 ```
@@ -64,7 +62,7 @@ This is making a `GET` request to the endpoint `https://api.spacexdata.com/v3/la
 ```
 *and it goes on all the way until line 12617*
 
-Woah, that's a lot of data to handle! Our friends at [Apollo GraphQL]() handle it by creating a `schema` which, basically, filters the response to get only the data that you want, an **GraphQL Schema** looks somewhat like this:
+Woah, that's a lot of data to handle! Our friends at [Apollo GraphQL](https://www.apollographql.com/docs/tutorial/introduction) handle it by creating a `schema` which, basically, filters the response to get only the data that you want, an **GraphQL Schema** looks somewhat like this:
 
 ```javascript
 type Launch {

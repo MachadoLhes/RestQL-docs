@@ -10,7 +10,8 @@
     - [Troubleshooting](/restql/troubleshooting.md)
 - **Tutorial**
     - [Introduction](/restql/tutorial/intro.md)
-    - [Connecting to a REST API](/restql/tutorial/addResource.md)
+    - [Setting Up](/restql/tutorial/settingUp.md)
+    - [Consulting Your Resources](/restql/tutorial/consultingResource.md)
     - [Next Steps](/restql/tutorial/nextSteps.md)
 - **Under the Hood**
     - [Configurations](/restql/config.md)
