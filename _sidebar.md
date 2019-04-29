@@ -11,6 +11,7 @@
 - **Tutorial**
     - [Introduction](/restql/tutorial/intro.md)
     - [Connecting to a REST API](/restql/tutorial/addResource.md)
+    - [Next Steps](/restql/tutorial/nextSteps.md)
 - **Under the Hood**
     - [Configurations](/restql/config.md)
     - [Cache](/restql/cache.md)

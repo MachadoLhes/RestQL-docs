@@ -76,16 +76,39 @@ type Launch {
 }
 ```
 
+But the keys on those schemas are not necessarily the keys on APIs response, to address that, Apollo uses **reducers**, this is what a reducer looks like:
+
+```javascript
+launchReducer(launch) {
+return {
+  id: launch.flight_number || 0,
+  cursor: `${launch.launch_date_unix}`,
+  site: launch.launch_site && launch.launch_site.site_name,
+  mission: {
+    name: launch.mission_name,
+    missionPatchSmall: launch.links.mission_patch_small,
+    missionPatchLarge: launch.links.mission_patch,
+  },
+  rocket: {
+    id: launch.rocket.rocket_id,
+    name: launch.rocket.rocket_name,
+    type: launch.rocket.rocket_type,
+  },
+};
+}
+```
+
+Reducers mainpulate the data in order to fit it to the schema that was previously created.
+
 This will guarantee the response will have **only** the data that you need. Got the word? **Only**, this is how you use `only` in restQL:
 
 ```
 from launches   
-    only id, site, mission, rocket, isBooked
+    only flight_number, launch_site.site_name, mission_name, links.mission_patch_small, links.mission_patch, rocket.rocket_id, rocket.rocket_name, rocket.rocket_type
 ```
 This will return:
 ```json
 {
-  {
   "launches": {
     "details": {
       "success": true,
@@ -94,32 +117,59 @@ This will return:
     },
     "result": [
       {
-        "site": null,
-        "mission": null,
-        "id": null,
-        "rocket": {...},
-        "isBooked": null
+        "launch_site": {
+          "site_name": "Kwajalein Atoll"
+        },
+        "rocket": {
+          "rocket_type": "Merlin A",
+          "rocket_id": "falcon1",
+          "rocket_name": "Falcon 1"
+        },
+        "mission_name": "FalconSat",
+        "links": {
+          "mission_patch": "https://images2.imgbox.com/40/e3/GypSkayF_o.png",
+          "mission_patch_small": "https://images2.imgbox.com/3c/0e/T8iJcSN3_o.png"
+        },
+        "flight_number": 1
       },
       {
-        "site": null,
-        "mission": null,
-        "id": null,
-        "rocket": {...},
-        "isBooked": null
+        "launch_site": {
+          "site_name": "Kwajalein Atoll"
+        },
+        "rocket": {
+          "rocket_type": "Merlin A",
+          "rocket_id": "falcon1",
+          "rocket_name": "Falcon 1"
+        },
+        "mission_name": "DemoSat",
+        "links": {
+          "mission_patch": "https://images2.imgbox.com/be/e7/iNqsqVYM_o.png",
+          "mission_patch_small": "https://images2.imgbox.com/4f/e3/I0lkuJ2e_o.png"
+        },
+        "flight_number": 2
       },
       {
-        "site": null,
-        "mission": null,
-        "id": null,
-        "rocket": {...},
-        "isBooked": null
+        "launch_site": {
+          "site_name": "Kwajalein Atoll"
+        },
+        "rocket": {
+          "rocket_type": "Merlin C",
+          "rocket_id": "falcon1",
+          "rocket_name": "Falcon 1"
+        },
+        "mission_name": "Trailblazer",
+        "links": {
+          "mission_patch": "https://images2.imgbox.com/4b/bd/d8UxLh4q_o.png",
+          "mission_patch_small": "https://images2.imgbox.com/3d/86/cnu0pan8_o.png"
+        },
+        "flight_number": 3
       },
       ...
     ]
   }
 }
 ```
-**Note:** the `rocket` property is a huge object, we hid it with `{...}` just for keeping it simple.
+**Note:** for complex objects like `rocket`, you can chain the call to a property, such as `rocket.rocket_name`.
 
 Oh yeah, that's a lot more understandable, and achieving this understandability is as simple as this, no schemas, no extra coding, nada.
 
@@ -134,9 +184,36 @@ mappings:
 See the `:id` at the end of the endpoint? This is the name of the parameter you should use the `with` clause with:
 
 ```
-from oneLaunch
-	with id = 27
-    only id, site, mission, rocket, isBooked
+from oneLaunch 
+  with id = 27
+  only flight_number, launch_site.site_name, mission_name, links.mission_patch_small, links.mission_patch, rocket.rocket_id, rocket.rocket_name, rocket.rocket_type
 ```
 This query will perform a `GET` to `https://api.spacexdata.com/v3/launches/27` and you'll see the following as a response:
 
+```json
+{
+  "oneLaunch": {
+    "details": {
+      "success": true,
+      "status": 200,
+      "metadata": {}
+    },
+    "result": {
+      "launch_site": {
+        "site_name": "CCAFS SLC 40"
+      },
+      "rocket": {
+        "rocket_type": "FT",
+        "rocket_id": "falcon9",
+        "rocket_name": "Falcon 9"
+      },
+      "mission_name": "SES-9",
+      "links": {
+        "mission_patch": "https://images2.imgbox.com/f6/aa/xDtGo0WJ_o.png",
+        "mission_patch_small": "https://images2.imgbox.com/fa/ef/4FBvVReu_o.png"
+      },
+      "flight_number": 27
+    }
+  }
+}
+```
