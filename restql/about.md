@@ -20,20 +20,19 @@ from hero as heroList
         name = search.results.name
 ```
 
-Links
-* [#restql](https://clojurians.slack.com/messages/C8S6EG8BF): [clojurians](https://clojurians.slack.com) restQL Slack channel
+Links:
+* [Tackling microservice query complexity](https://medium.com/b2w-engineering/restql-tackling-microservice-query-complexity-27def5d09b40): Project motivation and history
 * [@restQL](https://t.me/restQL): restQL Telegram Group
 * [@restQLBR](https://t.me/restQLBR): Brazilian restQL Telegram Group
 * [restql.b2w.io](http://restql.b2w.io): Project home page,
 * [game.b2w.io](http://game.b2w.io): A game developed to teach the basics of restQL language,
 * [restQL-clojure](https://github.com/B2W-BIT/restQL-clojure): If you want to embed restQL directly into your Clojure application,
 * [restQL-java](https://github.com/B2W-BIT/restQL-java): If you want to embed restQL directly into your Java application,
-* [restQL-manager](https://github.com/B2W-BIT/restQL-manager): To manage saved queries and resources endpoints. restQL-manager requires a MongoDB instance.
-* [Tackling microservice query complexity](https://medium.com/b2w-engineering/restql-tackling-microservice-query-complexity-27def5d09b40): Project motivation and history
+* [restQL-manager](https://github.com/B2W-BIT/restQL-manager): To manage saved queries and resources endpoints (requires a MongoDB instance).
 * [Wiki](https://github.com/B2W-BIT/restQL-http/wiki/RestQL-Query-Language): Git Hub documentation.
 * [Code](https://cljdoc.org/d/b2wdigital/restql-core): cljdoc of [restQL-clojure](https://github.com/B2W-BIT/restQL-clojure)
 
-Who're talking about restQL
+Who're talking about restQL:
 
 * [infoQ: restQL, a Microservices Query Language, Released on GitHub](https://www.infoq.com/news/2018/01/restql-released)
 * [infoQ: 微服务查询语言restQL已在GitHub上发布](http://www.infoq.com/cn/news/2018/01/restql-released)
@@ -42,7 +41,7 @@ Who're talking about restQL
 ## Next steps
 
 1. Learn restQL [query language](/restql/queryLang),
-2. Get involved :) We're looking for contributors, if you're interested ping ricardo.mayerhofer@b2wdigital.com
+2. Get involved :) We're looking for contributors, if you're interested open a Pull Request at our [GitHub Project](https://github.com/B2W-BIT/restQL-http).
 
 ## Help and community
 
