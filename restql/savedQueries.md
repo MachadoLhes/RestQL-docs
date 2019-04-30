@@ -1,12 +1,12 @@
 # Saved Queries
 
-restQL Server is able to save queries. On saving, restQL server will generate an unique URL where you can execute your query with a simple `GET` call. You can also include parameters in your query and set them when running the query using URL query string or HTTP headers.
+restQL-http is able to save queries. On saving, restQL-http will generate an unique URL where you can execute your query with a simple `GET` call. You can also include parameters in your query and set them when running the query using URL query string or HTTP headers.
 
-restQL Server works with a revision system. Once you save a query, it's immutable. If you save another query with the same queryId of an existing one, the server will not touch the previous query but rather it will create a new revision.
+restQL-http works with a revision system. Once you save a query, it's immutable. If you save another query with the same queryId of an existing one, the server will not touch the previous query but rather it will create a new revision.
 
 This is designed to avoid unaware impact in production system and to optimize caching.
 
-To save queries access restQL manager. The default port is 9001: http://my-ip:9001.
+To save queries access restQL-manager. The default port is 3000: http://my-ip:3000.
 
 ## Saved queries format
 
@@ -70,11 +70,11 @@ queries:
         from your-resource
 ```
 
-It is also possible to save you queries in a MongoDB collection. There should be a collection called `queries`, that shold look like that:
+It is also possible to save your queries in a MongoDB collection called `queries`, that shold look like that:
 ```json
 {
-    "name" : "hero-and-sidekick",
     "namespace" : "heroes-league",
+    "name" : "hero-and-sidekick",
     "revisions" : [ 
         {
             "text" : "from heroes\n with id = $id\n\n from sidekick"
@@ -87,11 +87,11 @@ It is also possible to save you queries in a MongoDB collection. There should be
 ```
 
 Where:
+* `namespace` is the name of the namespace that contains a saved query
 * `name` is the name of the saved query
-* `namespace` is the name of the saved query
 * `revisions` is an array with the revisions of a saved query
 
-When you save the a query with the same name in a same namespace, a new **revision** is created, this allows multiple versions of the same query to be requested. This is also useful for documentation purposes, you can see the changes made on each version of a saved query.
+When you save a query with the same name in the same namespace, a new **revision** is created. This allows multiple versions of the same query to be requested. This is also useful for documentation purposes, because you can see the changes made on each version of a saved query.
 
 ## Running queries
 

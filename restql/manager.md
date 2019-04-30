@@ -1,37 +1,37 @@
-# RestQL Manager
+# restQL-manager
 
-[restQL Manager](https://github.com/B2W-BIT/restQL-manager) allows you to easily develop and test new queries, save resources endpoints, check resources status and save queries that can be used by clients just referencing the query's name.
+[restQL-manager](https://github.com/B2W-BIT/restQL-manager) allows you to easily develop and test new queries, save resources endpoints, check resources status and save queries that can be used by clients just referencing the query's name.
 
-restQL Manager requires a [restQL-http](https://github.com/B2W-BIT/restQL-http) running instance.
+restQL-manager requires a [restQL-http](https://github.com/B2W-BIT/restQL-http) running instance.
 
 ## Installation
 
 ### NPM
 
-**restQL Manager** can be installed with [`@b2wdigital/restql-manager`](https://www.npmjs.com/package/@b2wdigital/restql-manager) npm package and run it directely from the shell.
+**restQL-manager** can be installed with [`@b2wdigital/restQL-manager`](https://www.npmjs.com/package/@b2wdigital/restQL-manager) npm package and run it directely from the shell.
 
 ```shell
-$ npm i -g @b2wdigital/restql-manager
-$ restql-manager
+$ npm i -g @b2wdigital/restQL-manager
+$ restQL-manager
 ```
 
 ### Docker
 
-The official **restQL Manager** docker image can be pulled from `b2wdigital/restql-manager` repository.
+The official **restQL-manager** docker image can be pulled from `b2wdigital/restQL-manager` repository.
 
 #### Basic usage:
 ```shell
-$ docker run -p 9000:9000 b2wdigital/restql-manager:latest
+$ docker run -p 9000:9000 b2wdigital/restQL-manager:latest
 ```
 
 #### Custom configuration:
 ```shell
-$ docker run -p 8080:8080 -e RESTQL_MANAGER_PORT=8080 ... b2wdigital/restql-manager:latest
+$ docker run -p 8080:8080 -e RESTQL_MANAGER_PORT=8080 ... b2wdigital/restQL-manager:latest
 ```
 
 ## Configuration
 
-restQL Manager uses the following environment variables for its configuration:
+restQL-manager uses the following environment variables for its configuration:
 
 - `RESTQL_SERVER_URL`. This will set the [restQL-http](https://github.com/B2W-BIT/restQL-http) instance that will run the queries and **MUST** point to a running [restQL-http](https://github.com/B2W-BIT/restQL-http) instance
 - `RESTQL_MANAGER_PORT`. Default is `3000`. Set this variable to change the TCP port to be bound.
@@ -40,7 +40,7 @@ restQL Manager uses the following environment variables for its configuration:
 ## Development server
 
 
-To install restQL manager dependecies run:
+To install restQL-manager dependecies run:
 
 ```shell
 yarn install
@@ -76,9 +76,9 @@ node src/server
 
 restQL-manager will be available at `http://localhost:3000/`
 
-## restQL Manager Endpoints
+## restQL-manager Endpoints
 
-By default the restQL Manager run on port 3000.
+By default the restQL-manager run on port 3000.
 
 #### Web Admin
 
@@ -90,7 +90,7 @@ By default the restQL Manager run on port 3000.
 
 #### Retrieving Available Resources
 
-restQL-HTTP has a route to retrieve all the mapped resources.
+restQL-http has a route to retrieve all the mapped resources.
 
 The route `GET http://localhost:3000/resources/:tenant` will return the following response:
 
@@ -118,7 +118,7 @@ Where `status = 200` means that the resource is reachable.
 
 #### Retrieving Saved Queries
 
-restQL-HTTP has a route to retrieve all the saved queries of a given namespace.
+restQL-http has a route to retrieve all the saved queries of a given namespace.
 
 The route `GET http://localhost:3000/ns/:namespace` will return the following response:
 
@@ -147,7 +147,7 @@ Where:
 
 #### Retrieving Saved Queries Revision
 
-restQL-HTTP has a route to retrieve all revisions from a saved query.
+restQL-http has a route to retrieve all revisions from a saved query.
 
 The route `GET http://localhost:3000/ns/:namespace/query/:queryId/`, with a given `queryId = cards`, will return the following response:
 
@@ -181,6 +181,11 @@ Where:
 
 #### Retrieving Saved Queries String
 
-restQL-HTTP has a route to retrieve the query string from a saved query, given a revision index.
+restQL-http has a route to retrieve the query string from a saved query, given a revision index.
 
-The route `GET http://localhost:3000/ns/:namespace/query/:queryId/revision/:index`, given `queryId = cards` and `index = 1`, will re
+The route `GET http://localhost:3000/ns/:namespace/query/:queryId/revision/:index`, given `queryId = cards` and `index = 1`, will retrieve the imaginary query:
+
+```restql
+from cards
+  with suit = spades
+```

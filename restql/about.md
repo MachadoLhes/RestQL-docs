@@ -6,7 +6,7 @@
 # What is restQL?
 **restQL** is a microservice query language that makes easy to fetch information from multiple services in the most efficient manner.
 
-## restQL HTTP
+## restQL-http
 
 restQL-http is a server to run restQL queries, making easy to fetch information from multiple services in the most efficient manner. e.g:
 
@@ -48,6 +48,10 @@ Who're talking about restQL:
 If you need help you can reach the community on Telegram
 - https://t.me/restQL (English)
 - https://t.me/restQLBR (Portuguese)
+
+## Releases
+
+You can find our latest releases at our [release page](https://github.com/B2W-BIT/restQL-http/releases).
 
 ## License
 

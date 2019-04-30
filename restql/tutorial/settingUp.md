@@ -9,14 +9,14 @@ mappings:
   launches: "https://api.spacexdata.com/v3/launches"
 ```
 
-Any value assigned to that key should point to a RESTful API.
+Any value assigned to that a key in `mappings` should point to a valid API.
 
 ## Building Docker image
 
-restQL Server can also be run as a Docker container.
-First, create the `restql.ymml` at the `src/resources/` folder
+restQL-http can also be ran as a Docker container.
+First, create the `restql.yml` at the `src/resources/` folder.
 
-Then execute the build-dist script:
+Then execute the build-dist script from the source code root folder:
 
 ```shell
 ./scripts/build-dist.sh
@@ -36,4 +36,4 @@ Then run the image as a container with the command:
 docker run -p 9000:9000 restql-server-img
 ```
 
-Nice! Now `restql-http` is being served at `localhost:9000`!
+Nice! Now `restQL-http` is being served at `localhost:9000`!

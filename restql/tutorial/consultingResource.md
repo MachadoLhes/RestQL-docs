@@ -1,13 +1,13 @@
-# Consulting Your Resources
+# Querying Your Resources
 
-So, until now you have made `restql-http` accessible at `localhost:9000` and your mappings look just like this:
+So, until now you have made `restQL-http` accessible at `localhost:9000` and your mappings look just like this:
 
 ```yaml
 mappings:
   launches: "https://api.spacexdata.com/v3/launches"
 ```
 
-There's nothing special about this YAML file, the procedure is simple, any key you add can be consulted with a `from` statement just like this:
+There's nothing special about this YAML file, the procedure is simple, any key you add can be queried with a `from` statement just like this:
 
 ```
 from $RESOURCE
@@ -62,43 +62,7 @@ This is making a `GET` request to the endpoint `https://api.spacexdata.com/v3/la
 ```
 *and it goes on all the way until line 12617*
 
-Woah, that's a lot of data to handle! Our friends at [Apollo GraphQL](https://www.apollographql.com/docs/tutorial/introduction) handle it by creating a `schema` which, basically, filters the response to get only the data that you want, an **GraphQL Schema** looks somewhat like this:
-
-```javascript
-type Launch {
-  id: ID!
-  site: String
-  mission: Mission
-  rocket: Rocket
-  isBooked: Boolean!
-}
-```
-
-But the keys on those schemas are not necessarily the keys on APIs response, to address that, Apollo uses **reducers**, this is what a reducer looks like:
-
-```javascript
-launchReducer(launch) {
-return {
-  id: launch.flight_number || 0,
-  cursor: `${launch.launch_date_unix}`,
-  site: launch.launch_site && launch.launch_site.site_name,
-  mission: {
-    name: launch.mission_name,
-    missionPatchSmall: launch.links.mission_patch_small,
-    missionPatchLarge: launch.links.mission_patch,
-  },
-  rocket: {
-    id: launch.rocket.rocket_id,
-    name: launch.rocket.rocket_name,
-    type: launch.rocket.rocket_type,
-  },
-};
-}
-```
-
-Reducers mainpulate the data in order to fit it to the schema that was previously created.
-
-This will guarantee the response will have **only** the data that you need. Got the word? **Only**, this is how you use `only` in restQL:
+Woah, that's a lot of data! There should be a way to guarantee the response will have **only** the data that you need. Got the word? **Only**, this is how you use `only` in restQL:
 
 ```
 from launches   
@@ -169,7 +133,7 @@ This will return:
 ```
 **Note:** for complex objects like `rocket`, you can chain the call to a property, such as `rocket.rocket_name`.
 
-Oh yeah, that's a lot more understandable, and achieving this understandability is as simple as this, no schemas, no extra coding, nada.
+Oh yeah, that's a lot more understandable, and achieving this understandability is as simple as this, no schemas, no extra coding, nothing.
 
 Now let's say you want to search for an specific launch, since it's another endpoint, you should create another resource entry at `restql.yml`:
 

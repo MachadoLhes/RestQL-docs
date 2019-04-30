@@ -11,12 +11,12 @@
 - **Tutorial**
     - [Introduction](/restql/tutorial/intro.md)
     - [Setting Up](/restql/tutorial/settingUp.md)
-    - [Consulting Your Resources](/restql/tutorial/consultingResource.md)
+    - [Querying Your Resources](/restql/tutorial/consultingResource.md)
     - [Next Steps](/restql/tutorial/nextSteps.md)
 - **Under the Hood**
     - [Configurations](/restql/config.md)
-    - [Cache](/restql/cache.md)
-    - [Building locally](/restql/howToDev.md)
+    - [Cache Control](/restql/cache.md)
+    - [Building Locally](/restql/howToDev.md)
 - [Game Resources](/restql/gameResources.md)
 - [How to contribute](/restql/howToContribute.md)
 - [F.A.Q](/restql/faq.md)

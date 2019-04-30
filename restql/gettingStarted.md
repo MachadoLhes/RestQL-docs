@@ -1,18 +1,19 @@
 # Getting Started
 
-## Running restQL HTTP
+## Running restQL-http
 
-restQL Server allows you to post ad-hoc queries and to reference resources pre-configured in the server startup.
+restQL-http allows you to run ad-hoc queries and to reference resources pre-configured in the server startup.
 
 1. Download the latest release in the [release page](https://github.com/B2W-BIT/restQL-http/releases),
 2. Unzip the package,
-3. Edit the file env.sh with the resources you want to invoke,
-3. Run bin/run.sh.
+3. Run `planets=https://swapi.co/api/planets/:id ./bin/run.sh`.
+
+**Note:** In this case, we added the `planets` resource as a variable to the `run.sh` command. Besides that, resources can also be added via **mongoDB** or **configuration file**, for more information, please read the [configuration page](/restql/config.md).
 
 Post to http://your-server.ip:9000/run-query the body below and content-type text/plain:
 
-```clojure
-curl -H "Content-Type: text/plain" localhost:9000/run-query -d "from planets as allPlanets" 
+```bash
+curl -d "from planets as allPlanets" -H "Content-Type: text/plain" localhost:9000/run-query 
 ```
 
 If you want to know more about the **query language**, [click here](/restql/queryLang.md)
